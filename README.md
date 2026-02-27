@@ -1,3 +1,7 @@
+<img width="740" height="508" alt="image" src="https://github.com/user-attachments/assets/e8ff88d5-9800-4119-8aec-f7cd5a7340bb" />
+<img width="740" height="508" alt="image" src="https://github.com/user-attachments/assets/e8ff88d5-9800-4119-8aec-f7cd5a7340bb" />
+
+
 # Wealthsimple Pulse
 
 **Your monthly financial pulse check — powered by deterministic math and AI interpretation.**
