@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wealthsimple Pulse</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">Pulse</span>
+      </div>
+      <span class="header-tag">Wealthsimple</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Onboarding Wizard -->
+    <section id="onboarding" class="onboarding hidden">
+      <div class="wiz-progress">
+        <div class="wiz-progress-fill" id="wiz-progress-fill"></div>
+      </div>
+
+      <div class="wiz-step" data-wiz="0">
+        <div class="wiz-header">
+          <h2 class="wiz-title">Welcome to Pulse</h2>
+          <p class="wiz-sub">Let's set up your financial profile. This takes about 2 minutes.</p>
+        </div>
+        <div class="wiz-fields">
+          <div class="fg"><label>What's your first name?</label><div class="iw"><input type="text" id="w_first_name" placeholder="e.g. Sarah" maxlength="50"></div></div>
+          <div class="fg"><label>How old are you?</label><div class="iw"><input type="number" id="w_age" placeholder="e.g. 32" min="16" max="100"></div></div>
+        </div>
+      </div>
+
+      <div class="wiz-step hidden" data-wiz="1">
+        <div class="wiz-header">
+          <h2 class="wiz-title">Where are you in your financial journey?</h2>
+          <p class="wiz-sub">This helps us understand your priorities.</p>
+        </div>
+        <div class="card-selector" id="life-stage-cards">
+          <button type="button" class="sel-card" data-value="student"><span class="sel-icon">&#127891;</span><span class="sel-label">Student</span></button>
+          <button type="button" class="sel-card" data-value="early_career"><span class="sel-icon">&#128640;</span><span class="sel-label">Early Career</span></button>
+          <button type="button" class="sel-card" data-value="mid_career"><span class="sel-icon">&#128188;</span><span class="sel-label">Mid Career</span></button>
+          <button type="button" class="sel-card" data-value="pre_retirement"><span class="sel-icon">&#127793;</span><span class="sel-label">Pre-Retirement</span></button>
+          <button type="button" class="sel-card" data-value="retired"><span class="sel-icon">&#9968;</span><span class="sel-label">Retired</span></button>
+        </div>
+      </div>
+
+      <div class="wiz-step hidden" data-wiz="2">
+        <div class="wiz-header">
+          <h2 class="wiz-title">Your money at a glance</h2>
+          <p class="wiz-sub">We use this to compute your financial state.</p>
+        </div>
+        <div class="wiz-fields">
+          <div class="fg"><label>Annual Income</label><div class="iw"><span class="pre">$</span><input type="number" id="w_annual_income" value="120000" step="1000"></div></div>
+          <div class="fg"><label>Monthly Expenses</label><div class="iw"><span class="pre">$</span><input type="number" id="w_monthly_expenses" value="4000" step="100"></div></div>
+          <div class="fg"><label>Cash Balance</label><div class="iw"><span class="pre">$</span><input type="number" id="w_cash_balance" value="25000" step="1000"></div></div>
+          <div class="fg"><label>Portfolio Value</label><div class="iw"><span class="pre">$</span><input type="number" id="w_portfolio_value" value="85000" step="1000"></div></div>
+        </div>
+      </div>
+
+      <div class="wiz-step hidden" data-wiz="3">
+        <div class="wiz-header">
+          <h2 class="wiz-title">Your investments</h2>
+          <p class="wiz-sub">How is your portfolio allocated?</p>
+        </div>
+        <div class="wiz-fields">
+          <div class="fg"><label>Equity Allocation</label><div class="iw"><input type="number" id="w_portfolio_equity_pct" value="60" min="0" max="100" step="5"><span class="suf">%</span></div></div>
+          <div class="fg"><label>Bond Allocation</label><div class="iw"><input type="number" id="w_portfolio_bond_pct" value="30" min="0" max="100" step="5"><span class="suf">%</span></div></div>
+          <div class="fg"><label>Monthly Contribution</label><div class="iw"><span class="pre">$</span><input type="number" id="w_monthly_contribution" value="1500" step="50"></div></div>
+          <div class="fg"><label>Risk Tolerance</label><select id="w_risk_profile"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></div>
+        </div>
+      </div>
+
+      <div class="wiz-step hidden" data-wiz="4">
+        <div class="wiz-header">
+          <h2 class="wiz-title">What are you working toward?</h2>
+          <p class="wiz-sub">Understanding your goal helps the AI give better context.</p>
+        </div>
+        <div class="card-selector" id="goal-purpose-cards">
+          <button type="button" class="sel-card" data-value="home"><span class="sel-icon">&#127968;</span><span class="sel-label">Home</span></button>
+          <button type="button" class="sel-card" data-value="retirement"><span class="sel-icon">&#127774;</span><span class="sel-label">Retirement</span></button>
+          <button type="button" class="sel-card" data-value="education"><span class="sel-icon">&#127979;</span><span class="sel-label">Education</span></button>
+          <button type="button" class="sel-card" data-value="travel"><span class="sel-icon">&#9992;</span><span class="sel-label">Travel</span></button>
+          <button type="button" class="sel-card" data-value="emergency"><span class="sel-icon">&#128737;</span><span class="sel-label">Emergency Fund</span></button>
+          <button type="button" class="sel-card" data-value="general_wealth"><span class="sel-icon">&#128176;</span><span class="sel-label">General Wealth</span></button>
+        </div>
+        <div class="wiz-fields" style="margin-top:24px">
+          <div class="fg"><label>Goal Target</label><div class="iw"><span class="pre">$</span><input type="number" id="w_goal_target_amount" value="500000" step="10000"></div></div>
+          <div class="fg"><label>Goal Timeline</label><div class="iw"><input type="number" id="w_goal_years" value="10" min="1" max="50"><span class="suf">yrs</span></div></div>
+          <div class="fg"><label>Top Financial Concern</label><select id="w_financial_concern"><option value="none">No major concern</option><option value="market_volatility">Market volatility</option><option value="not_saving_enough" selected>Not saving enough</option><option value="debt">Debt</option><option value="inflation">Inflation</option><option value="retirement_readiness">Retirement readiness</option></select></div>
+          <div class="fg fg-full"><label>Anything else we should know? <span class="optional-tag">optional</span></label><textarea id="w_personal_note" rows="3" maxlength="300" placeholder="e.g. Planning to buy in the GTA within 3 years..."></textarea></div>
+        </div>
+      </div>
+
+      <div class="wiz-step hidden" data-wiz="5">
+        <div class="wiz-header">
+          <h2 class="wiz-title">Review your profile</h2>
+          <p class="wiz-sub">Everything look right? You can always edit later.</p>
+        </div>
+        <div class="review-grid" id="review-grid"></div>
+      </div>
+
+      <div class="wiz-nav">
+        <button type="button" class="btn-ghost" id="wiz-back" style="visibility:hidden">Back</button>
+        <button type="button" class="btn-primary" id="wiz-next">Continue</button>
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="hidden">
+
+      <div class="card profile-section">
+        <div class="profile-bar" id="profile-bar">
+          <span id="profile-summary" class="profile-summary"></span>
+          <div class="profile-actions">
+            <button type="button" class="link-btn" id="edit-btn">Edit profile</button>
+            <button type="button" class="link-btn" id="rerun-btn" style="display:none">Re-evaluate</button>
+          </div>
+        </div>
+      </div>
+
+      <section id="loading" class="loading-section hidden">
+        <div class="loading-inner">
+          <div class="spinner"></div>
+          <p class="loading-title">Running your monthly pulse</p>
+          <div class="loading-steps" id="loading-steps">
+            <div class="step" data-step="0"><span class="step-icon"></span><span>Fetching market data</span></div>
+            <div class="step" data-step="1"><span class="step-icon"></span><span>Computing financial state</span></div>
+            <div class="step" data-step="2"><span class="step-icon"></span><span>Running scenario analysis</span></div>
+            <div class="step" data-step="3"><span class="step-icon"></span><span>Scoring candidate actions</span></div>
+            <div class="step" data-step="4"><span class="step-icon"></span><span>Generating AI insights</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <div id="results" class="results hidden">
+
+        <!-- AI Recommendation -->
+        <section class="card brief-card reveal" id="brief-section"></section>
+
+        <!-- Decision Controls -->
+        <section class="controls reveal" id="controls-section"></section>
+
+        <!-- At a Glance -->
+        <section class="reveal">
+          <h3 class="section-label">At a Glance</h3>
+          <div class="glance-grid">
+            <div class="card glance-card" id="goal-ring-card"></div>
+            <div class="card glance-card" id="alloc-donut-card"></div>
+            <div class="card glance-card" id="savings-card"></div>
+            <div class="card glance-card" id="liquidity-card"></div>
+          </div>
+        </section>
+
+        <!-- Portfolio Performance -->
+        <section class="reveal" id="chart-section" style="display:none">
+          <h3 class="section-label">Portfolio Performance</h3>
+          <p class="section-sub">1-year blended return based on real market data</p>
+          <div class="card chart-card" id="chart-card"></div>
+        </section>
+
+        <!-- Scenario Analysis -->
+        <section class="reveal">
+          <h3 class="section-label">Scenario Analysis</h3>
+          <p class="section-sub">Projected outcomes under three macro conditions</p>
+          <div class="scenario-grid" id="scenario-grid"></div>
+        </section>
+
+        <!-- Action Comparison -->
+        <section class="reveal">
+          <h3 class="section-label">Action Comparison</h3>
+          <p class="section-sub">All evaluated actions ranked by composite score</p>
+          <div class="card action-chart-card" id="action-chart"></div>
+        </section>
+
+        <!-- Analysis Detail (collapsible) -->
+        <section class="reveal">
+          <div class="detail-toggle" id="detail-toggle">
+            <h3 class="section-label" style="margin-bottom:0">AI Analysis Detail</h3>
+            <button class="link-btn" id="detail-btn">Show analysis</button>
+          </div>
+          <div id="detail-content" class="detail-content collapsed"></div>
+        </section>
+
+        <!-- Holdings -->
+        <section class="reveal" id="market-section" style="display:none">
+          <h3 class="section-label">Portfolio Holdings</h3>
+          <p class="section-sub">Live ETF data via Yahoo Finance</p>
+          <div class="card" id="holdings-card" style="padding:0;overflow:hidden"></div>
+        </section>
+
+        <!-- Guardrails -->
+        <footer class="guardrails reveal" id="guardrails-section"></footer>
+      </div>
+    </section>
+
+    <div id="toast" class="toast hidden"></div>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
