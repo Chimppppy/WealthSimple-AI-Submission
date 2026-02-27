@@ -1,3 +1,4 @@
+
 # Wealthsimple Pulse
 
 **Your monthly financial pulse check — powered by deterministic math and AI interpretation.**
