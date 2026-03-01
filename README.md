@@ -30,7 +30,7 @@ A **mid-career professional** (25–45) with registered and non-registered accou
 
 Pulse runs a three-layer pipeline every time the user requests a monthly evaluation:
 
-<img width="888" height="1477" alt="chart" src="https://github.com/user-attachments/assets/0c8a63a6-4435-439e-bd68-a2bb053eb7f1" />
+<img width="1165" height="1657" alt="Untitled-2026-03-01-1354" src="https://github.com/user-attachments/assets/6b546bec-cb5d-4675-a906-0dc211031d62" />
 
 
 ### The Critical Design Decision
