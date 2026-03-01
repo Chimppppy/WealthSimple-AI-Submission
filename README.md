@@ -30,56 +30,8 @@ A **mid-career professional** (25–45) with registered and non-registered accou
 
 Pulse runs a three-layer pipeline every time the user requests a monthly evaluation:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     USER PROFILE                            │
-│  Income · Expenses · Portfolio · Goal · Risk Tolerance      │
-└──────────────────────────┬──────────────────────────────────┘
-                           │
-                           ▼
-┌─────────────────────────────────────────────────────────────┐
-│              LAYER 1: MARKET DATA (Yahoo Finance)           │
-│                                                             │
-│  Real-time prices and historical returns for:               │
-│  VFV.TO · QQQ · XEQT.TO · ZAG.TO · XBB.TO                │
-│  → Blended equity return: ~14.7%  · Bond return: ~2.7%     │
-│  → 1-year portfolio performance history for charting        │
-└──────────────────────────┬──────────────────────────────────┘
-                           │
-                           ▼
-┌─────────────────────────────────────────────────────────────┐
-│           LAYER 2: DETERMINISTIC FINANCIAL ENGINE            │
-│                                                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │  Financial    │  │  Scenario    │  │  Action      │      │
-│  │  State Engine │  │  Simulation  │  │  Scoring     │      │
-│  │              │  │              │  │              │      │
-│  │  Savings rate │  │  Base case   │  │  5-7 actions │      │
-│  │  Liquidity   │  │  Recession   │  │  generated   │      │
-│  │  Goal prob.  │  │  Bull market │  │  scored &    │      │
-│  │  Risk score  │  │              │  │  ranked      │      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-│                                                             │
-│  ALL numbers are computed here. The AI never calculates.    │
-└──────────────────────────┬──────────────────────────────────┘
-                           │
-                           ▼
-┌─────────────────────────────────────────────────────────────┐
-│             LAYER 3: AI EXPLANATION (GPT-4o-mini)           │
-│                                                             │
-│  Receives: pre-computed scores, deltas, scenarios           │
-│  Produces: 3-sentence narrative, reasoning, risk warnings   │
-│                                                             │
-│  Strict guardrails:                                         │
-│  • Cannot recalculate or invent numbers                     │
-│  • Banned phrases enforced                                  │
-│  • Few-shot example in prompt for consistency               │
-│  • Temperature 0.15 for tight output variance               │
-│  • Confidence score clamped by deterministic bounds          │
-│                                                             │
-│  Fallback: if AI unavailable, deterministic brief generated │
-└─────────────────────────────────────────────────────────────┘
-```
+<img width="888" height="1477" alt="chart" src="https://github.com/user-attachments/assets/0c8a63a6-4435-439e-bd68-a2bb053eb7f1" />
+
 
 ### The Critical Design Decision
 
